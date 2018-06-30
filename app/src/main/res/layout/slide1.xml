@@ -9,14 +9,12 @@
     >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
         android:weightSum="1"
         android:id="@+id/linearLayout"
@@ -29,7 +27,6 @@
             android:scaleType="fitCenter"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
-
             android:layout_weight="1.22" />
 
 
