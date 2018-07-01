@@ -6,23 +6,59 @@
     android:layout_height="match_parent"
     tools:context="morelife.pointguard.Schools">
 
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/belo3w33"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:alpha="0.6"-->
+            <!--android:background="#000000"-->
+            <!--&gt;-->
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@drawable/pointglogosmall"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+
+        <!--</RelativeLayout>-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/pointglogosmall"
+        android:layout_height="58dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
+            android:id="@+id/belo3w33"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/pointglogo"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            android:background="#000000"
+
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme" />
+
+        </RelativeLayout>
+
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_schools" />
-
-
 
     <TextView
         android:id="@+id/textViewww"
