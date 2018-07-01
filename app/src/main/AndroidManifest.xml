@@ -39,7 +39,8 @@
         <activity
             android:name=".Schools"
             android:label="@string/title_activity_schools"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

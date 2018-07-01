@@ -3,6 +3,7 @@ package morelife.pointguard;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
@@ -10,8 +11,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.SearchView;
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
@@ -27,8 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -68,21 +69,49 @@ public class Schools extends AppCompatActivity
             R.drawable.wisconsin};
     ListView lv;
 
+    FragmentManager mFragmentManager;
+    FragmentTransaction mFragmentTransaction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_schools);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content, new morelife.pointguard.Department()).commit();
+
+//        mFragmentManager = getSupportFragmentManager();
+//        mFragmentTransaction = mFragmentManager.beginTransaction();
+//        mFragmentTransaction.replace(R.id.content, new Department()).commit();
+
         setSearchtollbar();
         getSupportActionBar().setTitle("");
+
 
         textViewww = (TextView) findViewById(R.id.textViewww);
         lv = (ListView) findViewById(R.id.idListView);
         MyAdapter adapter = new MyAdapter(getApplicationContext(), titles, descriptions, images);
         lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
+                String food = String.valueOf(parent.getItemAtPosition(position));
+                //Toast.makeText(getApplicationContext(), food, Toast.LENGTH_SHORT).show();
+                Intent StartIntent = new Intent(getApplicationContext(), Department.class);
+
+                //StartIntent.putExtra("food",food);
+
+                startActivity(StartIntent);
+
+                //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+            }
+
+        });
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -199,8 +228,12 @@ public class Schools extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_camera) {
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.content,new Department()).commit();
+
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
