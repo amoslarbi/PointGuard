@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -22,9 +21,9 @@
         android:layout_above="@+id/textView18">
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="240dp"
             android:layout_height="match_parent"
-            android:src="@drawable/pointguard"
+            android:src="@drawable/slide2"
             android:scaleType="fitCenter"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
@@ -39,7 +38,7 @@
         android:text="@string/slide_2_title"
         android:textColor="#ffffff"
         android:textSize="@dimen/slide_title"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:layout_alignBottom="@+id/textView17"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp"
@@ -54,7 +53,7 @@
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="@dimen/slide_desc"
-        android:layout_weight="9.17"
+        android:layout_weight="1.17"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait">
@@ -28,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action
@@ -38,7 +36,10 @@
                 <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".Schools"
+            android:label="@string/title_activity_schools"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
