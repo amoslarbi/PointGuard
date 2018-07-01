@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,7 +34,8 @@
         android:layout_width="match_parent"
         android:background="@drawable/pointglogosmall"
         android:layout_height="58dp"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout">
 
         <RelativeLayout
             android:id="@+id/belo3w33"
@@ -42,7 +43,6 @@
             android:layout_height="match_parent"
             android:alpha="0.8"
             android:background="#000000"
-
             >
 
             <android.support.v7.widget.Toolbar
@@ -52,6 +52,18 @@
                 android:layout_weight="1"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/searchtoolbar"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                app:collapseIcon="@drawable/ic_arrow_back"
+                app:titleTextColor="@color/colorPrimary"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:visibility="gone"
+                android:background="@color/colorTextPrimary"/>
 
         </RelativeLayout>
 
@@ -67,4 +79,13 @@
         android:visibility="gone"
         android:text="android.studio@android.com" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <ListView
+        android:id="@+id/idListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appBarLayout" />
+
+
+</RelativeLayout>
