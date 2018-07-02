@@ -8,24 +8,6 @@
     tools:context="morelife.pointguard.Schools">
 
 
-    <TextView
-        android:id="@+id/textViewwwa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="android.studio@android.com" />
-
-    <TextView
-        android:id="@+id/textViewww"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="199dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:text="android.studio@android.com" />
-
     <ListView
         android:id="@+id/idListView"
         android:layout_width="match_parent"

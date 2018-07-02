@@ -20,8 +20,6 @@ import android.widget.Toast;
 
 public class Frag2 extends Fragment {
 
-    TextView Unm, Uem, textViewww;
-
     String [] titles = {"Valley View University", "University of Ghana", "Kwame Nkrumah University of Science and Technology"
             , "University of Cape Coast", "University of Education, Winneba", "University for Development Studies",
             "University of Professional Studies", "University of Mines and Technology", "Ashesi University",
@@ -54,7 +52,6 @@ public class Frag2 extends Fragment {
         mFragmentTransaction = mFragmentManager.beginTransaction();
         //mFragmentTransaction.replace(R.id.content,new Frag2()).commit();
 
-        textViewww = (TextView) view.findViewById(R.id.textViewww);
         lv = (ListView) view.findViewById(R.id.idListView);
         MyAdapter adapter = new MyAdapter(getActivity(), titles, descriptions, images);
         lv.setAdapter(adapter);
@@ -63,7 +60,7 @@ public class Frag2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id){
                 String food = String.valueOf(parent.getItemAtPosition(position));
-                //Toast.makeText(getApplicationContext(), food, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), food, Toast.LENGTH_SHORT).show();
 //                Intent StartIntent = new Intent(getApplicationContext(), Department.class);
 //
 //                //StartIntent.putExtra("food",food);
@@ -78,8 +75,6 @@ public class Frag2 extends Fragment {
             }
 
         });
-
-
 
         return view;
 
