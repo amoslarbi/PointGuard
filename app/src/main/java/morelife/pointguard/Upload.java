@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Department extends Fragment {
+public class Upload extends Fragment {
 
     String[] titles = {"Valley View University", "University of Ghana", "Kwame Nkrumah University of Science and Technology"
             , "University of Cape Coast", "University of Education, Winneba", "University for Development Studies",
@@ -29,7 +29,7 @@ public class Department extends Fragment {
 
     ListView lv;
 
-    public Department() {
+    public Upload() {
         // Required empty public constructor
     }
 
@@ -37,31 +37,7 @@ public class Department extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.activity_department, container, false);
-
-        lv = (ListView) view.findViewById(R.id.idListView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_expandable_list_item_1, titles);
-        lv.setAdapter(adapter);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-                String food = String.valueOf(parent.getItemAtPosition(position));
-                Toast.makeText(getActivity(), food, Toast.LENGTH_SHORT).show();
-//                Intent StartIntent = new Intent(getApplicationContext(), Department.class);
-//
-//                //StartIntent.putExtra("food",food);
-//
-//                startActivity(StartIntent);
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, new Department()).commit();
-                fragmentTransaction.addToBackStack(null);
-
-            }
-
-        });
+        View view = inflater.inflate(R.layout.activity_upload, container, false);
 
         return view;
     }

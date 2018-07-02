@@ -40,7 +40,8 @@
             android:name=".Schools"
             android:label="@string/title_activity_schools"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Frag2"></activity>
+        <activity android:name=".Frag2" />
+        <activity android:name=".Upload"></activity>
     </application>
 
 </manifest>
