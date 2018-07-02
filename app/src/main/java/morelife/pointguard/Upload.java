@@ -557,7 +557,7 @@ public class Upload extends Fragment {
                         }
 
 
-                        //path = FilePath.getPath(getActivity(), filePath);
+                        path = FilePath.getPath(getActivity(), filePath);
 
                         if (path == null) {
 
