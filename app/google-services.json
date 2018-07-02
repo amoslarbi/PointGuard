@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1033248074052",
+    "firebase_url": "https://pointguard-9bb25.firebaseio.com",
+    "project_id": "pointguard-9bb25",
+    "storage_bucket": "pointguard-9bb25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033248074052:android:8a362447f4d3f629",
+        "android_client_info": {
+          "package_name": "morelife.pointguard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033248074052-3rok9aqu5nek0eunab05sahhrjn1cdcl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "morelife.pointguard",
+            "certificate_hash": "710f4eae01e3f9a07f06fe13e56769889bbbc8b1"
+          }
+        },
+        {
+          "client_id": "1033248074052-bgi1hvav1vp9lc8a6g4hktp05e2mt4eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKou8XtfbuXaRzhqtrh3L2Tc52Y88xVwE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033248074052-bgi1hvav1vp9lc8a6g4hktp05e2mt4eq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
