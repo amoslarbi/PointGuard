@@ -42,11 +42,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.kosalgeek.asynctask.AsyncResponse;
+import com.kosalgeek.asynctask.EachExceptionsHandler;
+import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,11 +76,19 @@ public class Upload extends Fragment {
     ListView lv;
     Animation Open, Close, Clockwise, Anticlockwise;
     private FloatingActionButton nLogOutBtn, usee, logg, sposted;
-    TextView textView19, textView20;
+    TextView textView19, textView20, textView5;
     Spinner s1, s2, s3;
     TextView scroll, textView8;
     EditText naa, edin;
     Button choose;
+    //pdf adapter
+
+    PdfAdapter pdfAdapter;
+    ArrayList<String> depa;
+    ArrayList<String> ccode;
+    ArrayList<String> lec;
+    //an array to hold the different pdf objects
+    ArrayList<Pdf> pdfList= new ArrayList<Pdf>();
 
     boolean isOpen = false;
     boolean favSelected = true;
@@ -89,6 +109,8 @@ public class Upload extends Fragment {
     private Uri filePath;
     String path;
 
+    ListView listView;
+
     public Upload() {
         // Required empty public constructor
     }
@@ -104,8 +126,97 @@ public class Upload extends Fragment {
         logg = (FloatingActionButton) view.findViewById(R.id.logoutt);
         textView19 = (TextView) view.findViewById(R.id.textView19);
         textView20 = (TextView) view.findViewById(R.id.textView20);
+        listView = (ListView) view.findViewById(R.id.idListView);
 
         requestStoragePermission();
+
+        textView5 = (TextView) view.findViewById(R.id.textView5);
+        //textView5.setText(getIntent().getStringExtra("food"));
+        //Toast.makeText(getApplicationContext(), textView5.getText().toString(), Toast.LENGTH_SHORT).show();
+        HashMap<String, String> postData = new HashMap<String, String>();
+
+        postData.put("depa", textView5.getText().toString());
+        //postData.put("mobile","android");
+
+        PostResponseAsyncTask task = new PostResponseAsyncTask(getActivity(),postData, new AsyncResponse() {
+            @Override
+            public void processFinish(String str) {
+
+                if(str.contains("success")) {
+
+                    try {
+                        JSONArray jArray = new JSONArray(str);
+                        //Toast.makeText(getApplicationContext(), String.valueOf(str), Toast.LENGTH_SHORT).show();
+
+                        for (int i = 0; i < jArray.length(); i++) {
+                            JSONObject jsonObject = jArray.getJSONObject(i);
+
+
+                            //Declaring a Pdf object to add it to the ArrayList  pdfList
+                            Pdf pdf  = new Pdf();
+                            String pdfName = jsonObject.getString("name");
+                            String pdfUrl = jsonObject.getString("url");
+                            String pdfDepartment = jsonObject.getString("program");
+                            String pdfProgram = jsonObject.getString("coursename");
+                            //String pdfAcademicyear = jsonObject.getString("academicyear");
+                            String pdfLname = jsonObject.getString("lname");
+                            pdf.setUrl(pdfUrl);
+                            pdf.setDepartment(pdfDepartment);
+                            pdf.setProgram(pdfProgram);
+                            //pdf.setAcademicyear(pdfAcademicyear);
+                            pdf.setLname(pdfLname);
+                            pdfList.add(pdf);
+
+                        }
+
+                        pdfAdapter=new PdfAdapter(getActivity(),R.layout.depalist, pdfList);
+                        listView.setAdapter(pdfAdapter);
+                        pdfAdapter.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
+                if(str.contains("Failed")){
+
+                    SweetAlertDialog su = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
+                    su.setTitleText("Sorry no questions available");
+                    su.show();
+
+                }
+
+            }
+        });
+
+        task.execute( "http://gtuc.one957.com/getPdfs.php");
+        //task.execute( "http://192.168.43.234/pdf/getPdfs.php");
+        task.setEachExceptionsHandler(new EachExceptionsHandler() {
+            @Override
+            public void handleIOException(IOException e) {
+                Toast.makeText(getActivity(), "Cannot Connect to server  ", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void handleMalformedURLException(MalformedURLException e) {
+                Toast.makeText(getActivity(), "URL Error ", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void handleProtocolException(ProtocolException e) {
+                Toast.makeText(getActivity(), "Protocol Error ", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void handleUnsupportedEncodingException(UnsupportedEncodingException e) {
+                Toast.makeText(getActivity(), "Encoding Error ", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         Open = AnimationUtils.loadAnimation(getActivity(), R.anim.fab_open);
         Close = AnimationUtils.loadAnimation(getActivity(), R.anim.fab_close);
