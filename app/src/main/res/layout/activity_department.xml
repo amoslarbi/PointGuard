@@ -1,22 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/hello"
-    tools:context="morelife.pointguard.Department">
+    tools:context="morelife.pointguard.Schools">
+
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/belo3w33"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:alpha="0.6"-->
+    <!--android:background="#000000"-->
+    <!--&gt;-->
+
+    <!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--android:background="@drawable/pointglogosmall"-->
+    <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@drawable/pointglogosmall"-->
+        <!--android:layout_height="58dp"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay"-->
+        <!--android:id="@+id/appBarLayout">-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/belo3w33"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:alpha="0.8"-->
+            <!--android:background="#000000"-->
+            <!--&gt;-->
+
+            <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="55dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:minHeight="?attr/actionBarSize"-->
+                <!--android:theme="?attr/actionBarTheme" />-->
+
+            <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/searchtoolbar"-->
+                <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+                <!--app:collapseIcon="@drawable/ic_arrow_back"-->
+                <!--app:titleTextColor="@color/colorPrimary"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"-->
+                <!--android:visibility="gone"-->
+                <!--android:background="@color/colorTextPrimary"/>-->
+
+        <!--</RelativeLayout>-->
+
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<include layout="@layout/content_schools" />-->
 
     <TextView
-        android:id="@+id/idDescription"
+        android:id="@+id/textViewww"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="2"
-        android:layout_row="0"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="39dip"
-        android:textColor="#000000"
-        android:text="Course code" />
+        android:text="android.studio@android.com" />
+
+    <!--<ListView-->
+        <!--android:id="@+id/idListView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/appBarLayout" />-->
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

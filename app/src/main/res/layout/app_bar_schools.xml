@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="morelife.pointguard.Schools">
 
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+    <!--&lt;!&ndash;<android.support.design.widget.AppBarLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:theme="@style/AppTheme.AppBarOverlay">&ndash;&gt;-->
 
-        <!--<RelativeLayout-->
-            <!--android:id="@+id/belo3w33"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:alpha="0.6"-->
-            <!--android:background="#000000"-->
-            <!--&gt;-->
+        <!--&lt;!&ndash;<RelativeLayout&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/belo3w33"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:alpha="0.6"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="#000000"&ndash;&gt;-->
+            <!--&lt;!&ndash;&gt;&ndash;&gt;-->
 
-        <!--<android.support.v7.widget.Toolbar-->
-            <!--android:id="@+id/toolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="?attr/actionBarSize"-->
-            <!--android:background="@drawable/pointglogosmall"-->
-            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+        <!--&lt;!&ndash;<android.support.v7.widget.Toolbar&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/toolbar"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="?attr/actionBarSize"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/pointglogosmall"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:popupTheme="@style/AppTheme.PopupOverlay" />&ndash;&gt;-->
 
-        <!--</RelativeLayout>-->
+        <!--&lt;!&ndash;</RelativeLayout>&ndash;&gt;-->
 
     <!--</android.support.design.widget.AppBarLayout>-->
 
@@ -79,13 +80,13 @@
         android:visibility="gone"
         android:text="android.studio@android.com" />
 
-    <ListView
-        android:id="@+id/idListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/appBarLayout" />
+    <!--<ListView-->
+        <!--android:id="@+id/idListView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/appBarLayout" />-->
 
 
 </RelativeLayout>

@@ -53,22 +53,21 @@ public class Schools extends AppCompatActivity
 
     TextView Unm, Uem, textViewww;
     ImageView Uimmg;
-
-    String [] titles = {"Valley View University", "University of Ghana", "Kwame Nkrumah University of Science and Technology"
-    , "University of Cape Coast", "University of Education, Winneba", "University for Development Studies",
-            "University of Professional Studies", "University of Mines and Technology", "Ashesi University",
-    "Central University College", "Wisconsin International University College"};
-
-    String [] descriptions = {"Excellence*Integrity*Service", "Integri Procedamus", "Nyansapɔ wɔsane no badwenma",
-    "Veritas Nobis Lumen", "Education for Service", "Knowledge for Service", "Scholarship with Professionalism",
-    "Knowledge*Truth*Excellence", "Scholarship*Leadership*Citizenship", "Faith*Integrity*Excellence",
-    "Peace*Harmony*Freedom*Truth*Knowledge"};
-
-    int [] images = {R.drawable.valleyview, R.drawable.legon, R.drawable.tech, R.drawable.ucclogo,
-            R.drawable.winneba, R.drawable.uds, R.drawable.ups, R.drawable.mines, R.drawable.ashesi, R.drawable.central,
-            R.drawable.wisconsin};
-    ListView lv;
-
+//
+//    String [] titles = {"Valley View University", "University of Ghana", "Kwame Nkrumah University of Science and Technology"
+//    , "University of Cape Coast", "University of Education, Winneba", "University for Development Studies",
+//            "University of Professional Studies", "University of Mines and Technology", "Ashesi University",
+//    "Central University College", "Wisconsin International University College"};
+//
+//    String [] descriptions = {"Excellence*Integrity*Service", "Integri Procedamus", "Nyansapɔ wɔsane no badwenma",
+//    "Veritas Nobis Lumen", "Education for Service", "Knowledge for Service", "Scholarship with Professionalism",
+//    "Knowledge*Truth*Excellence", "Scholarship*Leadership*Citizenship", "Faith*Integrity*Excellence",
+//    "Peace*Harmony*Freedom*Truth*Knowledge"};
+//
+//    int [] images = {R.drawable.valleyview, R.drawable.legon, R.drawable.tech, R.drawable.ucclogo,
+//            R.drawable.winneba, R.drawable.uds, R.drawable.ups, R.drawable.mines, R.drawable.ashesi, R.drawable.central,
+//            R.drawable.wisconsin};
+//    ListView lv;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
@@ -79,38 +78,37 @@ public class Schools extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content, new morelife.pointguard.Department()).commit();
-
-//        mFragmentManager = getSupportFragmentManager();
-//        mFragmentTransaction = mFragmentManager.beginTransaction();
-//        mFragmentTransaction.replace(R.id.content, new Department()).commit();
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentTransaction.replace(R.id.content,new Frag2()).commit();
 
         setSearchtollbar();
         getSupportActionBar().setTitle("");
 
-
         textViewww = (TextView) findViewById(R.id.textViewww);
-        lv = (ListView) findViewById(R.id.idListView);
-        MyAdapter adapter = new MyAdapter(getApplicationContext(), titles, descriptions, images);
-        lv.setAdapter(adapter);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-                String food = String.valueOf(parent.getItemAtPosition(position));
-                //Toast.makeText(getApplicationContext(), food, Toast.LENGTH_SHORT).show();
-                Intent StartIntent = new Intent(getApplicationContext(), Department.class);
-
-                //StartIntent.putExtra("food",food);
-
-                startActivity(StartIntent);
-
-                //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-            }
-
-        });
+//        lv = (ListView) findViewById(R.id.idListView);
+//        MyAdapter adapter = new MyAdapter(getApplicationContext(), titles, descriptions, images);
+//        lv.setAdapter(adapter);
+//
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
+//                String food = String.valueOf(parent.getItemAtPosition(position));
+//                //Toast.makeText(getApplicationContext(), food, Toast.LENGTH_SHORT).show();
+////                Intent StartIntent = new Intent(getApplicationContext(), Department.class);
+////
+////                //StartIntent.putExtra("food",food);
+////
+////                startActivity(StartIntent);
+//
+//                FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.content, new Frag2()).commit();
+//
+//                Toast.makeText(getApplicationContext(), "Open...",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//
+//        });
 
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -142,54 +140,49 @@ public class Schools extends AppCompatActivity
         Uem.setText(sh.getString("nmma", "nmoo1"));
         textViewww.setText(sh.getString("nmmaa", "nmoo2"));
 
-//        Unm.setText(getIntent().getStringExtra("nm"));
-//        Uem.setText(getIntent().getStringExtra("em"));
-//        textViewww.setText(getIntent().getStringExtra("larry"));
-
         String lolo = textViewww.getText().toString();
         Uri c = Uri.parse(lolo);
 
         Picasso.with(getApplicationContext()).load(c).into(Uimmg);
 
-
-
-
-    }
-
-    class MyAdapter extends ArrayAdapter {
-        int[] imageArray;
-        String[] titleArray;
-        String[] descArray;
-
-        public MyAdapter(Context context, String[] titles1, String[] description1, int [] img1){
-
-            super(context, R.layout.schoolsdesign,R.id.idTitle, titles1);
-            this.imageArray=img1;
-            this.titleArray=titles1;
-            this.descArray=description1;
-
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent){
-
-            LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View row = inflater.inflate(R.layout.schoolsdesign,parent,false);
-
-            ImageView myImage = (ImageView) row.findViewById(R.id.idPic);
-            TextView myTitle = (TextView) row.findViewById(R.id.idTitle);
-            TextView myDescription = (TextView) row.findViewById(R.id.idDescription);
-
-            myImage.setImageResource(imageArray[position]);
-            myTitle.setText(titleArray[position]);
-            myDescription.setText(descArray[position]);
-
-            return row;
-
-        }
+        //add this line to display menu1 when the activity is loaded
 
     }
+
+//    class MyAdapter extends ArrayAdapter {
+//        int[] imageArray;
+//        String[] titleArray;
+//        String[] descArray;
+//
+//        public MyAdapter(Context context, String[] titles1, String[] description1, int [] img1){
+//
+//            super(context, R.layout.schoolsdesign,R.id.idTitle, titles1);
+//            this.imageArray=img1;
+//            this.titleArray=titles1;
+//            this.descArray=description1;
+//
+//        }
+//
+//        @NonNull
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent){
+//
+//            LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//            View row = inflater.inflate(R.layout.schoolsdesign,parent,false);
+//
+//            ImageView myImage = (ImageView) row.findViewById(R.id.idPic);
+//            TextView myTitle = (TextView) row.findViewById(R.id.idTitle);
+//            TextView myDescription = (TextView) row.findViewById(R.id.idDescription);
+//
+//            myImage.setImageResource(imageArray[position]);
+//            myTitle.setText(titleArray[position]);
+//            myDescription.setText(descArray[position]);
+//
+//            return row;
+//
+//        }
+//
+//    }
 
     @Override
     public void onBackPressed() {
@@ -223,16 +216,17 @@ public class Schools extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_camera) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.content,new Department()).commit();
+                fragmentTransaction.replace(R.id.content, new Frag2()).commit();
 
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
@@ -245,8 +239,35 @@ public class Schools extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        //displaySelectedScreen(item.getItemId());
+
         return true;
     }
+
+//    private void displaySelectedScreen(int itemId) {
+//
+//        //creating fragment object
+//        Fragment fragment = null;
+//
+//        //initializing the fragment object which is selected
+//        switch (itemId) {
+//            case R.id.nav_camera:
+//                fragment = new Department();
+//                break;
+//
+//        }
+//
+//        //replacing the fragment
+//        if (fragment != null) {
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            ft.replace(R.id.content, fragment);
+//            ft.commit();
+//        }
+//
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+//    }
 
     ///////////////////////////////////////////////////
     /////////// Code for Searchtollbar///// ///////////
