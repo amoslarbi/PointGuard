@@ -16,4 +16,80 @@
         android:layout_below="@+id/appBarLayout" />
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/uploadpdf"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="25dp"
+        app:backgroundTint="#3b5998"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/usee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/uploadpdf"
+        app:backgroundTint="#3b5998"
+        android:alpha="0.7"
+        android:layout_above="@+id/forward"
+        app:pressedTranslationZ="12dp"
+        android:elevation="6dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/logoutt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/uploadpdf"
+        app:backgroundTint="#3b5998"
+        app:pressedTranslationZ="12dp"
+        android:elevation="6dp"
+        android:layout_above="@+id/usee"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible"
+        />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usee"
+        android:layout_marginTop="14dp"
+        android:layout_toStartOf="@+id/forward"
+        android:layout_toLeftOf="@+id/forward"
+        android:text=".pdf/.docx Upload"
+        android:padding="3dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#E52F31"
+        android:visibility="invisible"
+        />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/logoutt"
+        android:layout_marginTop="14dp"
+        android:layout_toStartOf="@+id/forward"
+        android:layout_toLeftOf="@+id/forward"
+        android:text="Image Upload"
+        android:padding="3dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#E52F31"
+        android:visibility="invisible"
+        />
+
 </RelativeLayout>

@@ -56,7 +56,7 @@ public class Department extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, new Department()).commit();
+                fragmentTransaction.replace(R.id.content, new Upload()).commit();
                 fragmentTransaction.addToBackStack(null);
 
             }
