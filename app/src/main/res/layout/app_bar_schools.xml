@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context="morelife.pointguard.Schools">
 
     <!--&lt;!&ndash;<android.support.design.widget.AppBarLayout&ndash;&gt;-->
@@ -31,45 +32,28 @@
 
     <!--</android.support.design.widget.AppBarLayout>-->
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        app:titleTextColor="@color/colorTextPrimary"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:background="@drawable/pointglogosmall"
-        android:layout_height="58dp"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/appBarLayout">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/side_nav_bar"/>
 
-        <RelativeLayout
-            android:id="@+id/belo3w33"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.8"
-            android:background="#000000"
-            >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/searchtoolbar"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        app:collapseIcon="@drawable/ic_arrow_back"
+        app:titleTextColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
+        android:background="@color/colorTextPrimary"/>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_weight="1"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme" />
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/searchtoolbar"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                app:collapseIcon="@drawable/ic_arrow_back"
-                app:titleTextColor="@color/colorPrimary"
-                android:layout_alignParentTop="true"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:visibility="gone"
-                android:background="@color/colorTextPrimary"/>
-
-        </RelativeLayout>
-
-
-    </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_schools" />
 
@@ -79,5 +63,14 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="android.studio@android.com" />
+
+    <ListView
+        android:id="@+id/idListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar" />
+
 
 </RelativeLayout>

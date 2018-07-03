@@ -41,18 +41,16 @@ public class Department extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_department, container, false);
 
-        Bundle bundle = getArguments();
-
         text = (TextView) view.findViewById(R.id.fragmentText);//Find textview Id
 
         if(getArguments()!=null) {
-
+            Bundle bundle = getArguments();
+            //String customer_id = (String) getArguments().get("depa");
             value =  bundle.getString("depa", "default");
             //value = bundle.getString("depa", "default");
 
         }
         else
-
         {
             Toast.makeText(getActivity(), "hello",
                     Toast.LENGTH_SHORT).show();

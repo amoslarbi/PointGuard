@@ -29,6 +29,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -47,6 +49,22 @@ import static morelife.pointguard.MainActivity.hello;
 public class Schools extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    String [] titles = {"Valley View University", "University of Ghana", "Kwame Nkrumah University of Science and Technology"
+            , "University of Cape Coast", "University of Education, Winneba", "University for Development Studies",
+            "University of Professional Studies", "University of Mines and Technology", "Ashesi University",
+            "Central University College", "Wisconsin International University College"};
+
+    String [] descriptions = {"Excellence*Integrity*Service", "Integri Procedamus", "Nyansapɔ wɔsane no badwenma",
+            "Veritas Nobis Lumen", "Education for Service", "Knowledge for Service", "Scholarship with Professionalism",
+            "Knowledge*Truth*Excellence", "Scholarship*Leadership*Citizenship", "Faith*Integrity*Excellence",
+            "Peace*Harmony*Freedom*Truth*Knowledge"};
+
+    int [] images = {R.drawable.valleyview, R.drawable.legon, R.drawable.tech, R.drawable.ucclogo,
+            R.drawable.winneba, R.drawable.uds, R.drawable.ups, R.drawable.mines, R.drawable.ashesi, R.drawable.central,
+            R.drawable.wisconsin};
+
+    ListView lv;
+
     Toolbar toolbar, searchtollbar;
     Menu search_menu;
     MenuItem item_search;
@@ -54,22 +72,46 @@ public class Schools extends AppCompatActivity
     TextView Unm, Uem, textViewww;
     ImageView Uimmg;
 
-    FragmentManager mFragmentManager;
-    FragmentTransaction mFragmentTransaction;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+
         setContentView(R.layout.activity_schools);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.content,new Frag2()).commit();
-
         setSearchtollbar();
         getSupportActionBar().setTitle("");
+
+        lv = (ListView) findViewById(R.id.idListView);
+        MyAdapter adapter = new MyAdapter(Schools.this, titles, descriptions, images);
+        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
+                String food = String.valueOf(parent.getItemAtPosition(position));
+
+                FragmentManager fragmentManager = Schools.this.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                Department myFragment = new Department();
+                Bundle args = new Bundle();
+                args.putString("depa", "pass");
+                myFragment.setArguments(args);
+
+                fragmentTransaction.replace(R.id.content, new Department()).commit();
+                fragmentTransaction.addToBackStack(null);
+
+//                Toast.makeText(getActivity(), String.valueOf(args),
+//                        Toast.LENGTH_SHORT).show();
+
+
+            }
+
+        });
 
         textViewww = (TextView) findViewById(R.id.textViewww);
 
@@ -170,6 +212,42 @@ public class Schools extends AppCompatActivity
 
         return true;
     }
+
+    class MyAdapter extends ArrayAdapter {
+        int[] imageArray;
+        String[] titleArray;
+        String[] descArray;
+
+        public MyAdapter(Context context, String[] titles1, String[] description1, int [] img1){
+
+            super(context, R.layout.schoolsdesign,R.id.idTitle, titles1);
+            this.imageArray=img1;
+            this.titleArray=titles1;
+            this.descArray=description1;
+
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent){
+
+            LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View row = inflater.inflate(R.layout.schoolsdesign,parent,false);
+
+            ImageView myImage = (ImageView) row.findViewById(R.id.idPic);
+            TextView myTitle = (TextView) row.findViewById(R.id.idTitle);
+            TextView myDescription = (TextView) row.findViewById(R.id.idDescription);
+
+            myImage.setImageResource(imageArray[position]);
+            myTitle.setText(titleArray[position]);
+            myDescription.setText(descArray[position]);
+
+            return row;
+
+        }
+
+    }
+
 
 
     ///////////////////////////////////////////////////
