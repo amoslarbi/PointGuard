@@ -22,12 +22,14 @@ import android.widget.Toast;
 
 public class Department extends Fragment {
 
-    String[] titles = {"Valley View University", "University of Ghana", "Kwame Nkrumah University of Science and Technology"
-            , "University of Cape Coast", "University of Education, Winneba", "University for Development Studies",
-            "University of Professional Studies", "University of Mines and Technology", "Ashesi University",
-            "Central University College", "Wisconsin International University College"};
-
+    String[] titles = new String[]{"BSC Business Administration", "BSC Computer Engineering", "BSC Information Technology",
+            "BSC Telecom Engineering", "MBA Strategic Management",
+            "BBA Human Resourse Management", "BBA Marketing", "MAB Banking and Finance", "MED Educational Administration and leadership"
+            , "BBA Accounting", "BSC Agribusiness","BSC Mathematics and Statistics","BSC Computer Science",
+            "BED English Language"};
     ListView lv;
+    TextView text;
+    String value;
 
     public Department() {
         // Required empty public constructor
@@ -38,6 +40,26 @@ public class Department extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.activity_department, container, false);
+
+        Bundle bundle = getArguments();
+
+        text = (TextView) view.findViewById(R.id.fragmentText);//Find textview Id
+
+        if(getArguments()!=null) {
+
+            value =  bundle.getString("depa", "default");
+            //value = bundle.getString("depa", "default");
+
+        }
+        else
+
+        {
+            Toast.makeText(getActivity(), "hello",
+                    Toast.LENGTH_SHORT).show();
+
+
+        }
+        text.setText(value);
 
         lv = (ListView) view.findViewById(R.id.idListView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_expandable_list_item_1, titles);
@@ -65,6 +87,5 @@ public class Department extends Fragment {
 
         return view;
     }
-
 
 }

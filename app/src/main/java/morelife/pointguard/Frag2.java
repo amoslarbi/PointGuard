@@ -60,17 +60,21 @@ public class Frag2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id){
                 String food = String.valueOf(parent.getItemAtPosition(position));
-                Toast.makeText(getActivity(), food, Toast.LENGTH_SHORT).show();
-//                Intent StartIntent = new Intent(getApplicationContext(), Department.class);
-//
-//                //StartIntent.putExtra("food",food);
-//
-//                startActivity(StartIntent);
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                Department myFragment = new Department();
+                Bundle args = new Bundle();
+                args.putString("depa", "pass");
+                myFragment.setArguments(args);
+
                 fragmentTransaction.replace(R.id.content, new Department()).commit();
                 fragmentTransaction.addToBackStack(null);
+
+//                Toast.makeText(getActivity(), String.valueOf(args),
+//                        Toast.LENGTH_SHORT).show();
+
 
             }
 
@@ -113,6 +117,7 @@ public class Frag2 extends Fragment {
         }
 
     }
+
 
 
     }
